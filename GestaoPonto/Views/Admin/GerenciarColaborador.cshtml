@@ -1,0 +1,49 @@
+﻿@model IEnumerable<GestaoPonto.Models.Colaborador>
+
+@{
+    ViewData["Title"] = "Gerenciar Colaboradores";
+}
+
+<div class="container mt-4">
+    <div class="text-center">
+        <h1 class="display-4">@ViewData["Title"]</h1>
+        <p class="lead">Visualize, adicione, edite ou remova colaboradores da empresa.</p>
+        <a href="/Colaborador/Criar" class="btn btn-success mb-3">Adicionar Novo Colaborador</a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info text-center">
+            Nenhum colaborador encontrado.
+        </div>
+    }
+    else
+    {
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Função</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var colaborador in Model)
+                {
+                    <tr>
+                        <td>@colaborador.Nome</td>
+                        <td>@colaborador.Email</td>
+                        <td>@colaborador.Role</td>
+                        <td>
+                            <a href="/Colaborador/Detalhes/@colaborador.Id" class="btn btn-info btn-sm">Detalhes</a>
+                            <a href="/Colaborador/Editar/@colaborador.Id" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="/Colaborador/Excluir/@colaborador.Id" class="btn btn-danger btn-sm"
+                               onclick="return confirm('Tem certeza que deseja remover este colaborador?');">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

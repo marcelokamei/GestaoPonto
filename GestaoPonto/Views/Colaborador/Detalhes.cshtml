@@ -1,0 +1,22 @@
+﻿@model GestaoPonto.Models.Colaborador
+@{
+    ViewData["Title"] = "Detalhes do Colaborador";
+}
+<h1>@ViewData["Title"]</h1>
+<br />
+<div class="card">
+    <div class="card-header">
+        <h5>Informações do Colaborador</h5>
+    </div>
+    <div class="card-body">
+        <p><strong>Nome:</strong> @Model.Nome</p>
+        <p><strong>Email:</strong> @Model.Email</p>
+        <p><strong>Função:</strong> @Model.Role</p>
+    </div>
+    <div class="card-footer">
+        <br />
+        <a href="/Colaborador/Editar/@Model.Id" class="btn btn-warning">Editar</a>
+    </div>
+    <br />
+    <a class="btn btn-secondary" asp-controller="Colaborador" asp-action="Index" role="button">Voltar</a>
+</div>

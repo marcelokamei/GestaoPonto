@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Registrar Ponto";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Registrar Ponto</h1>
+    <p class="lead">Selecione a ação desejada para registrar seu ponto.</p>
+</div>
+
+@if (TempData["Mensagem"] != null)
+{
+    <div class="alert alert-success text-center">
+        @TempData["Mensagem"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger text-center">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<div class="d-flex justify-content-center mt-4">
+    <form asp-action="RegistarPonto" method="post" class="text-center">
+        <button name="tipo" value="Entrada" class="btn btn-success btn-lg me-2">Registrar Entrada</button>
+        <button name="tipo" value="Saída" class="btn btn-danger btn-lg">Registrar Saída</button>
+        <br />
+        <br />
+        <a href="/Colaborador/PainelColaborador" class="btn btn-primary">Voltar</a>
+    </form>
+</div>
+

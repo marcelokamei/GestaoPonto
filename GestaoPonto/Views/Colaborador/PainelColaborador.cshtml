@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Painel do Colaborador";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bem-vindo, @User.Identity.Name!</h1>
+    <p class="lead">Abaixo estão suas principais ações disponíveis:</p>
+</div>
+
+<div class="mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Registrar Ponto</h5>
+                    <p class="card-text">Clique para registrar entrada ou saída.</p>
+                    <a href="/Colaborador/RegistarPonto" class="btn btn-success">Registrar Ponto</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Histórico de Registros</h5>
+                    <p class="card-text">Visualize seu histórico de pontos registrados.</p>
+                    <a href="/Colaborador/MeusRegistos" class="btn btn-primary">Ver Histórico</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

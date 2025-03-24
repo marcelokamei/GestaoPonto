@@ -1,0 +1,26 @@
+﻿@model IEnumerable<GestaoPonto.Models.RegistoPonto>
+@{
+    ViewData["Title"] = "Registros de Ponto";
+}
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Nome do Colaborador</th>
+            <th>Data e Hora</th>
+            <th>Tipo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var registro in Model)
+        {
+            <tr>
+                <td>@registro.Colaborador.Nome</td>
+                <td>@registro.DataHora.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@registro.Tipo</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/RegistroDePonto/Create" class="btn btn-primary">Adicionar Registro</a>

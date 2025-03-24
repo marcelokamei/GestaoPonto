@@ -1,0 +1,33 @@
+﻿@model IEnumerable<GestaoPonto.Models.Colaborador>
+@{
+    ViewData["Title"] = "Lista de Colaboradores";
+}
+<h1>@ViewData["Title"]</h1>
+<br />
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Função</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var colaborador in Model)
+        {
+            <tr>
+                <td>@colaborador.Nome</td>
+                <td>@colaborador.Email</td>
+                <td>@colaborador.Role</td>
+                <td>
+                    <a href="/Colaborador/Detalhes/@colaborador.Id" class="btn btn-info btn-sm">Detalhes</a>
+                    <a href="/Colaborador/Editar/@colaborador.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="/Colaborador/Excluir/@colaborador.Id" class="btn btn-danger btn-sm">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a href="/Colaborador/Criar" class="btn btn-primary">Adicionar Colaborador</a>

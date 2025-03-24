@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Sistema de Gestão de Colaboradores e Ponto!";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p class="lead">Gerencie colaboradores e registros de ponto com eficiência e praticidade.</p>
+    <br />
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="custom-alert-success mt-4" role="alert">
+            <h4 class="alert-heading">Bem-vindo, @User.Identity.Name!</h4>
+            <p>Você está logado. Use o menu abaixo para navegar pelo sistema.</p>
+            <hr>
+            <div class="mb-3">
+                @if (User.IsInRole("Admin"))
+                {
+                    <!-- Menu para o Administrador -->
+                    <div class="btn-group-vertical">
+                        <a href="/Admin/GerenciarColaborador" class="btn btn-primary mb-2">Gerenciar Colaboradores</a>
+                        <a href="/RegistoPonto/Index" class="btn btn-primary mb-2">Visualizar Registros de Ponto</a>
+                    </div>
+                }
+                else if (User.IsInRole("Colaborador"))
+                {
+                    <!-- Menu para o Colaborador -->
+                    <div class="btn-group-vertical">
+                        <a href="/Colaborador/RegistarPonto" class="btn btn-success mb-2">Registrar Ponto</a>
+                        <a href="/Colaborador/MeusRegistos" class="btn btn-success">Meu Histórico</a>
+                    </div>
+                }
+            </div>
+@*             <p class="mb-0">
+                Deseja sair?
+                <form asp-controller="Conta" asp-action="Logout" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-danger btn-sm">Sair</button>
+                </form>
+            </p> *@
+        </div>
+
+    }
+    else
+    {
+        <div class="mt-5">
+            <a href="/Conta/Login" class="btn btn-primary btn-lg">Entrar no Sistema</a>
+        </div>
+    }
+</div>

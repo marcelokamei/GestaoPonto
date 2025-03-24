@@ -1,0 +1,14 @@
+﻿@model GestaoPonto.Models.Colaborador
+@{
+    ViewData["Title"] = "Excluir Colaborador";
+}
+<h1>Tem certeza que deseja excluir este colaborador?</h1>
+<p>Nome: @Model.Nome</p>
+<p>Email: @Model.Email</p>
+
+<form asp-action="Excluir" method="post">
+    <br />
+    <button type="submit" class="btn btn-danger">Sim, Excluir</button>
+</form>
+<br />
+<a href="/Colaborador/Index" class="btn btn-secondary">Cancelar</a>
