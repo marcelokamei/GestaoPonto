@@ -9,6 +9,7 @@
         <h1 class="display-4">@ViewData["Title"]</h1>
         <p class="lead">Visualize, adicione, edite ou remova colaboradores da empresa.</p>
         <a href="/Colaborador/Criar" class="btn btn-success mb-3">Adicionar Novo Colaborador</a>
+
     </div>
 
     @if (!Model.Any())
@@ -45,5 +46,7 @@
                 }
             </tbody>
         </table>
+        <a class="btn btn-secondary" asp-controller="Home" asp-action="Index" role="button">Voltar</a>
+
     }
 </div>

@@ -10,10 +10,12 @@ namespace GestaoPonto.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly DataSeeder _dataSeeder;
 
+
         public ContaController(SignInManager<IdentityUser> signInManager, DataSeeder dataSeeder)
         {
             _signInManager = signInManager;
             _dataSeeder = dataSeeder;
+
         }
 
         [HttpGet]
@@ -74,6 +76,7 @@ namespace GestaoPonto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
+
             // Faz logout do usuário atual
             await _signInManager.SignOutAsync();
 
@@ -86,6 +89,5 @@ namespace GestaoPonto.Controllers
         {
             return View();
         }
-
     }
 }

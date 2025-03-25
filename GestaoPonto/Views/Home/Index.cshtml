@@ -17,15 +17,17 @@
                 {
                     <!-- Menu para o Administrador -->
                     <div class="btn-group-vertical">
-                        <a href="/Admin/GerenciarColaborador" class="btn btn-primary mb-2">Gerenciar Colaboradores</a>
+                        <a href="/Admin/GerenciarColaborador" class="btn btn-primary mb-2">Gerir Colaboradores</a>
                         <a href="/RegistoPonto/Index" class="btn btn-primary mb-2">Visualizar Registros de Ponto</a>
+                        <a href="/Colaborador/ExportarRegistrosParaCsv" class="btn btn-primary mb-2">Exportar Registos de Ponto</a>
+
                     </div>
                 }
                 else if (User.IsInRole("Colaborador"))
                 {
                     <!-- Menu para o Colaborador -->
                     <div class="btn-group-vertical">
-                        <a href="/Colaborador/RegistarPonto" class="btn btn-success mb-2">Registrar Ponto</a>
+                        <a href="/Colaborador/RegistarPonto" class="btn btn-success mb-2">Registaar Ponto</a>
                         <a href="/Colaborador/MeusRegistos" class="btn btn-success">Meu Histórico</a>
                     </div>
                 }

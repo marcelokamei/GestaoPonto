@@ -7,8 +7,11 @@
 <p>Email: @Model.Email</p>
 
 <form asp-action="Excluir" method="post">
-    <br />
-    <button type="submit" class="btn btn-danger">Sim, Excluir</button>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-danger">Sim, Excluir</button>
+        <a href="/Colaborador/Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+
 </form>
-<br />
-<a href="/Colaborador/Index" class="btn btn-secondary">Cancelar</a>
+
+

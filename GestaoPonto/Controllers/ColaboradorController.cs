@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using System.Text;
 
 namespace GestaoPonto.Controllers
 {
@@ -125,10 +126,6 @@ namespace GestaoPonto.Controllers
 
             return View(registros);
         }
-
-
-
-
 
         //CRUD colaborador
         //criar novo colaborador
@@ -325,6 +322,24 @@ namespace GestaoPonto.Controllers
                 ModelState.AddModelError(string.Empty, $"Ocorreu um erro ao excluir o colaborador: {ex.Message}");
             }
             return View();
+        }
+
+
+        // API para Exportar Registros para CSV
+        [Authorize(Policy = "AdminPolicy")]
+        [HttpGet]
+        public async Task<IActionResult> ExportarRegistrosParaCsv()
+        {
+            var registros = await _colaboradorRepository.GetAllRegistrosAsync();
+            var csv = new StringBuilder();
+            csv.AppendLine("Colaborador,DataHora,Tipo");
+
+            foreach (var registro in registros)
+            {
+                csv.AppendLine($"{registro.Colaborador.Nome},{registro.DataHora:dd/MM/yyyy HH:mm},{registro.Tipo}");
+            }
+
+            return File(Encoding.UTF8.GetBytes(csv.ToString()), "text/csv", "registros.csv");
         }
 
 

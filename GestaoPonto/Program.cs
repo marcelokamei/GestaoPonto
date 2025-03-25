@@ -1,3 +1,4 @@
+using GestaoPonto.Controllers;
 using GestaoPonto.Data;
 using GestaoPonto.Repositories;
 using Microsoft.AspNetCore.Identity;

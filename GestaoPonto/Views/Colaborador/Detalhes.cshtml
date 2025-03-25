@@ -14,9 +14,11 @@
         <p><strong>Função:</strong> @Model.Role</p>
     </div>
     <div class="card-footer">
-        <br />
+        
         <a href="/Colaborador/Editar/@Model.Id" class="btn btn-warning">Editar</a>
+        <a class="btn btn-secondary" asp-controller="Colaborador" asp-action="Index" role="button">Voltar</a>
+
+   
     </div>
-    <br />
-    <a class="btn btn-secondary" asp-controller="Colaborador" asp-action="Index" role="button">Voltar</a>
 </div>
+<br />
